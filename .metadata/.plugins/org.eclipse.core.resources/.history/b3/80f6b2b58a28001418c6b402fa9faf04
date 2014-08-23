@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CVGenerator</title>
+    </head>
+    <body>
+        <form method="post">
+             <fieldset>
+                  <legend>Personal Information:</legend>
+                  <input type="text" name="fname" placeholder="First Name"/>
+                  <br />
+                  <input type="text" name="lname" placeholder="Last Name"/>
+                  <br />
+                  <input type="email" name="email" placeholder="Email"/>
+                  <br />
+                  <input type="text" name="number" placeholder="Phone Number"/>
+                  <br />
+                  <label for="female">Female</label>
+                  <input type="radio" name="gender" id="female" value="Female"/>
+                  <label for"male">Male</label>
+                  <input type="radio" name="gender" id="male" value="Male"/>
+                  <br />
+                  <label for="bday">Birth Date</label>
+                  <br />
+                  <input type="date" name="birthDate" id="bday"/>
+                  <br />
+                  <label for="nationality">Nationality</label>
+                  <br />
+                  <select name="nationality">
+                      <option value="bulgarian">Bulgarian</option>
+                      <option value="indian">Indian</option>
+                      <option value="romanian">Romanian</option>
+                      <option value="french">French</option>
+                  </select>
+             </fieldset>
+             <fieldset>
+                 <legend>Last Work Position</legend>
+                 <label for="company-name">Company Name</label>
+                 <input type="text" name="company" id="company-name"/>
+                 <br />
+                 <label for="from-date">From</label>
+                 <input type="date" name="fromDate" id="from-date"/>
+                 <br />
+                  <label for="to-date">To</label>
+                 <input type="date" name="toDate" id="to-date"/>
+             </fieldset>
+             
+             <fieldset>
+                 <legend>Computer Skills</legend>
+                 <div id="programming">
+                     
+                 </div>
+                 <button onclick="removeLang()">Remove Language</button>
+                 <button onclick="addLang()">Add Language</button>
+             </fieldset>
+        </form>
+        <script>
+            function addLang(){
+                var createdDiv = document.createElement('div');
+                createdDiv.innerHTML ="<input type=\"text\" name=\"progrLang\" />"+
+                     "<select name=level>"+
+                         "<option value=\"beg\">Beginner</option>"+
+                         "<option vale=\"pro\">Programmer</option>"+
+                         "<option value=\"ninja\">Ninja</option>+
+                     "</select>";
+                document.getElementById('programming').appendChild(createdDiv);
+            }
+            function removeLang () {
+              
+            }
+        </script>
+    </body>
+</html>

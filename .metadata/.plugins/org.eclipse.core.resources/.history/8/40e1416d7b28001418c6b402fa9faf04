@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HTML Tags Counter</title>
+    </head>
+    <body>
+        <form method="post">
+            <label for=tags-input>Enter HTML Tags:</label>
+            <br>
+            <input type="text" name="tag" id="tags-input"/>
+            <input type="submit"/>
+        </form>
+    </body>
+</html>

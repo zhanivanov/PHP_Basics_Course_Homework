@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Calculate Interest</title>
+    </head>
+    <body>
+        <div id="outer">
+            <label for="money-amount">Enter Amount</label>
+            <input type="text" name="money-amount"/>
+        </div>
+        
+    </body>
+</html>

@@ -9,7 +9,7 @@
 <stringAttribute key="com.aptana.php.debug.php_debugger_id" value="org2.eclipse.php.debug.core.xdebugDebugger"/>
 <stringAttribute key="debugOutputEncoding" value="UTF-8"/>
 <stringAttribute key="debugTransferEncoding" value="UTF-8"/>
-<booleanAttribute key="firstLineBreakpoint" value="true"/>
+<booleanAttribute key="firstLineBreakpoint" value="false"/>
 <stringAttribute key="org2.eclipse.php.debug.core.PHP_Project" value="/PHP_Syntax_Homework"/>
 <booleanAttribute key="org2.eclipse.php.debug.core.RunWithDebugInfo" value="true"/>
 </launchConfiguration>

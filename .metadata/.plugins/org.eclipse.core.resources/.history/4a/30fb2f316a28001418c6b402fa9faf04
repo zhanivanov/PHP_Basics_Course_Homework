@@ -1,0 +1,28 @@
+<?php
+if(isset($_GET['text-field'])){
+    $array = preg_split("/, /", $_GET['text-field']);
+    $counter = 0;
+    foreach($array as $item){
+        print $counter++.":".$item."<br>";
+    }
+}
+
+?>
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Print Tags
+        </title>
+    </head>
+    <body>
+        <form method="get" accept-charset="utf-8">      
+            <div id="outer">
+              <p>Enter tags:</p>
+              <input type="text" name="text-field"/>
+              <input type="submit" name="submit"/>
+            </div>
+        </form>
+    </body>
+</html>

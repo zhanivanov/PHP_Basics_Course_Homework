@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Calculate Interest</title>
+    </head>
+    <body>
+        <div id="outer">
+            <label for="money">Enter Amount</label>
+            <input type="text" id="money" name="money-amount"/>
+            <input type="radio" name="radio-group" id="usd"/>
+            <label for="usd">USD</label>
+            <input type="radio" name="radio-group" id="eur"/>
+            <label for="eur">EUR</label>
+            <input type="radio" name="radio-group" id="bgn"/>
+            <label for="bgn">BGN</label>
+        </div>
+        
+    </body>
+</html>
