@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>FindPrimesInRange</title>
+    </head>
+    <body>
+        <form method="post">
+            <label for"start">Starting index</label>
+            <input type="text" name="start" id="start"/>
+            <label for="end">End</label>
+            <input type="text" name="end" id="end"/>
+            <input type="submit"value="Submit"/>
+        </form>
+    </body>
+</html>

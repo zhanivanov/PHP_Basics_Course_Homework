@@ -1,0 +1,57 @@
+
+<?php
+if(isset($_POST['cars'])){
+    $cars = preg_split("/, /", $_POST['cars']);
+    $colours = array("yellow","red","green","blue","black","grey");
+    
+    
+    $resultTable = 
+            '<table>
+                <thead>
+                    <tr>
+                        <th>Car</th>
+                        <th>Colour</th>
+                        <th>Count</th>
+                    </tr>
+                </thead>
+                <tbody>';
+                    for($i = 0; $i < count($cars); $i++){
+                        $resultTable .= '<tr>';
+                        $resultTable .= '<td>'.$cars[$i].'</td>';
+                        $resultTable .= '<td>'.$colours[rand(0, count($colours)-1)].'</td>';
+                        $resultTable .= '<td>'.rand(0, count($colours)).'</td>';
+                        $resultTable .= '</tr>';
+                    }
+                    
+      $resultTable .= '</tbody></table>';
+}
+?>
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Car Randomizer</title>
+        <style>
+            th,td{
+                border: 1px solid green;
+            }
+            table {
+                border-collapse: collapse;
+            }
+        </style>
+    </head>
+    <body>
+        <form method="post">
+            <label for="cars">Enter cars</label>
+            <input type="text" name="cars" id="cars"/>
+            <input type="submit" value="Show result"/>
+            <?php
+            if(isset($resultTable)){
+                echo $resultTable;
+            }
+            ?>
+           
+        </form>
+    </body>
+</html>

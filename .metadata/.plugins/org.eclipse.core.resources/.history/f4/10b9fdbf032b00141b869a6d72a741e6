@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sum Of Digits</title>
+    </head>
+    <body>
+        <form method="post">
+            <label for="input">Input string:</label>
+            <input type="text" name="input" id="input"/>
+            <input type="submit"/>
+        </form>
+        <?php
+        if(isset($_POST['input']) && !empty($_POST['input'])):
+            $inputString = preg_split("/,/", $_POST['input']);
+        ?>
+        <table>
+            <tbody>
+                <?php
+                for($i = 0; $i < count($inputString); $i++):
+                    
+                ?>
+                <tr>
+                    <td><?= $inputString[$i] ?></td>
+                    <td>...</td>
+                </tr>
+                <?php endfor; ?>
+            </tbody>
+        </table>
+        <?php endif; ?>
+    </body>
+</html>

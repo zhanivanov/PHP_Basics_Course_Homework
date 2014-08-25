@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Square Root Sum</title>
+        <style>
+            table,tr,th,td{
+                border: 1px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        <table>
+            <thead>
+                <tr>
+                    <th>Number</th>
+                    <th>Square</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                    for($i = 0; $i<=100; $i+=2): ?>
+                <tr>
+                    <td><?= $i ?></td>
+                    <td><?= round(sqrt($i), 2) ?></td>
+                </tr>
+                <?php endfor; ?>
+            </tbody>
+        </table>
+    </body>
+</html>

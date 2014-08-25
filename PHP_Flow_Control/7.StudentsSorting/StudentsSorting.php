@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="StudentsSorting.css"/>
+        <title>Students Sorting</title>
+	<script>
+		var idCounter = 0;
+		function addField(){
+			var myField = document.createElement('tr');
+			myField.setAttribute("id","inputField"+idCounter++);
+			myField.innerHTML = '<td>'+
+                            '<input type="text" name="fname[]"/>'+
+                        '</td>'+
+                        '<td>'+
+                            '<input type="text" name="lname[]"/>'+
+                        '</td>'+
+                        '<td>'+
+                            '<input type="email" name="email[]"/>'+
+                        '</td>'+
+                        '<td>'+
+                            '<input type="number" name="score[]" id="num"/>'+
+                            '<input type="button" value="-" class="buttons" onclick="removeField()"/>'+
+                        '</td>';
+			var areaToAdd = document.getElementById('add');
+			areaToAdd.appendChild(myField);
+		}
+
+
+		function removeField(){
+			var removeField = document.getElementById("inputField"+(--idCounter));
+			var areaToRem = document.getElementById("add");
+			areaToRem.removeChild(removeField);
+		}
+	</script>
+    </head>
+    <body>
+        <form method="post">
+            <table>
+                <thead>
+                    <tr>
+                        <td>First name:</td>
+                        <td>Second name:</td>
+                        <td>Email:</td>
+                        <td>Exam Score:</td>
+                    </tr>
+                </thead>
+                <tbody id="add">
+			<script>
+				for(var i=0; i<3; i++){
+					addField();
+				}			
+			</script>
+                </tbody>
+            </table>
+		<input type="button" value="+" class="buttons" onclick="addField()"/>
+		<label for="sort">Sort By:</label>
+		<select name="sort" id="sort">
+			<option value="fname">First name</option>
+			<option value="lname">Last name</option>
+			<option value="email">Email</option>
+			<option value="exam">Exam score</option>		
+		</select>
+		<label for="order">Order:</label>
+		<select name="order" id="order">
+			<option value="ascending">Ascending</option>
+			<option value="discending">Descending</option>		
+		</select>
+		<input type="submit" value="SUBMIT" class="buttons"/>
+        </form>
+	<?php
+	if(isset($_POST['fname']) && isset($_POST['lname']) && isset($_POST['email']) && isset($_POST['score'])):
+		$namesArr = $_POST['fname'];
+		$lastNamesArr = $_POST['lname'];
+		$emailsArr = $_POST['email'];
+		$scoreArr = $_POST['score'];
+		$sort = $_POST['sort'];
+		$order = $_POST['order'];
+		
+		class Person{
+			public $firstName;
+			public $lastName;
+			public $email;
+			public $examScore;
+			public function __construct($firstName,$lastName,$email,$examScore){
+				$this -> firstName = $firstName;
+				$this -> lastName = $lastName;
+				$this -> email = $email;
+				$this -> examScore = $examScore;		
+			}	
+		}
+		$peopleArr = [];
+		$scoreSum = 0;
+		for($i = 0; $i<count($namesArr); $i++){
+			$peopleArr[$i] = new Person($namesArr[$i],$lastNamesArr[$i],$emailsArr[$i],$scoreArr[$i]);	
+			$scoreSum += $peopleArr[$i]->examScore;
+		}
+		$averageScore = round($scoreSum/count($peopleArr),0);
+        
+        function sortByFName($o1,$o2){
+            global $order;
+            if($order == "ascending"){
+                return strcmp($o1->firstName,$o2->firstName);       
+            }
+            else{
+                return !strcmp($o1->firstName,$o2->firstName);
+            }       
+        }
+        function sortByLName($o1,$o2){
+            global $order;
+            if($order == "ascending"){
+                return strcmp($o1->lastName,$o2->lastName);     
+            }
+            else{
+                return !strcmp($o1->lastName,$o2->lastName);
+            }   
+        }
+        function sortByEmail($o1,$o2){
+            global $order;
+            if($order == "ascending"){
+                return strcmp($o1->email,$o2->email);       
+            }
+            else{
+                return !strcmp($o1->email,$o2->email);
+            }   
+        }
+        function sortByExamScore($o1,$o2){
+            global $order;
+            if($order == "ascending"){
+                return $o1->examScore > $o2->examScore;     
+            }
+            else{
+                return !($o1->examScore > $o2->examScore);
+            }   
+        }
+        
+		switch($sort){
+		case 'fname':
+			usort($peopleArr,'sortByFName');
+			break;
+		case 'lname':
+			usort($peopleArr,'sortByLName');
+			break;
+		case 'email':
+			usort($peopleArr,'sortByEmail');
+			break;
+		case 'exam':
+			usort($peopleArr,'sortByExamScore');
+			break;
+		}
+
+	?>
+	<table id="result">
+		<thead>
+			<tr>
+				<th>First name</th>
+				<th>Last name</th>
+				<th>Email</th>
+				<th>Exam score</th>
+			</tr>		
+		</thead>
+		<tbody>
+			<?php
+			for($j = 0; $j<count($namesArr);$j++):
+			?>
+			<tr>
+				<td><?= $peopleArr[$j]->firstName ?></td>
+				<td><?= $peopleArr[$j]->lastName ?></td>
+				<td><?= $peopleArr[$j]->email ?></td>
+				<td><?= $peopleArr[$j]->examScore ?></td>			
+			</tr>
+			<?php endfor; ?>
+		</tbody>
+		<tfoot>
+			<tr>
+				<td colspan=3><strong>Average Score:</strong></td>
+				<td>
+					<strong><?= $averageScore ?></strong>
+				</td>
+			</tr>		
+		</tfoot>	
+	</table>
+	<?php endif; ?>
+    </body>
+</html>
+
+
+
+
+
+

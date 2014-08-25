@@ -1,0 +1,49 @@
+input {
+	padding: 5px 10px 5px 10px;
+}
+#num{
+	width: 60px;
+}
+table{
+	border-collapse:collapse;
+	border:2px solid #A1A1A1;
+}
+table tbody tr:nth-child(odd) {
+    background-color: #E6E6E6;
+}
+table tr td{
+	padding:5px;
+}
+table thead tr td{
+	border-bottom:1px solid black;
+}
+
+input.buttons{
+	color:white;
+	font-weight:bold;
+	background-color:#284A6B;
+}
+#result{
+	border-collapse:collapse;
+}
+#result tr th,td{
+	padding:5px;
+}
+#result thead tr th{
+	background:#52A5DD;
+	color:white;
+	border:1px solid black;
+}
+#result tbody tr td{
+	border:1px solid black;
+}
+#result tbody tr td:last-child{
+	text-align:right;
+}
+#result tfoot tr td:last-child{
+	text-align:right;
+	border:1px solid black;
+}
+#result tfoot tr{
+	background-color: #E9E9E9;
+}

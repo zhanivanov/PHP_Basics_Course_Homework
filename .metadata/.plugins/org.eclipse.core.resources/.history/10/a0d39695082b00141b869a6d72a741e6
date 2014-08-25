@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Modify String</title>
+    </head>
+    <body>
+        <form method="post">
+            <input type="text" name="string"/>
+            <input type="radio" name="radio-group" value="palindrome" id="palindrome"/>
+            <label for="palindrome">Check Palindrome</label>
+            
+            <input type="radio" name="radio-group" id="reverse"/>
+            <label for="reverse">Reverse String</label>
+            
+            <input type="radio" name="radio-group" id="split"/>
+            <label for="split">Split</label>
+            
+            <input type="radio" name="radio-group" id="hash"/>
+            <label for="hash">Hash String</label>
+            
+            <input type="radio" name="radio-group" id="shuffle"/>
+            <label for="shuffle">Suffle String</label>
+            
+            <input type="submit" />
+        </form>
+    </body>
+</html>
+
+
+<?php
+if(isset($_POST['string']) && isset($_POST['radio-group'])){
+    $inputString = $_POST['string'];
+    $funcChoice = $_POST['radio-group'];
+    switch($funcChoice){
+        case "palindrome":
+            if(is_palindrome($inputString)){
+                echo $inputString.' is a palindrome!';
+            }
+            else{
+                echo $inputString.' is not a palindrome!';
+            }
+            break;
+        case "reverse":
+    }
+}
+
+
+function is_palindrome($string)
+{
+    $a = strtolower(preg_replace("/[^A-Za-z0-9]/","",$string));
+    return $a==strrev($a);
+}
+?>

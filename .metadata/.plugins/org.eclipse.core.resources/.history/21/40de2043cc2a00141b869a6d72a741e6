@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Square Root Sum</title>
+    </head>
+    <body>
+        <table>
+            <thead>
+                <tr>
+                    <th>Number</th>
+                    <th>Square</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                    for($i = 0; $i<=100; $i+=2): ?>
+                <tr>
+                    <td><?= $i ?></td>
+                    <td>Empty</td>
+                </tr>
+                <?php endfor; ?>
+            </tbody>
+        </table>
+    </body>
+</html>

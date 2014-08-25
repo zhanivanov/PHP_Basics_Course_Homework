@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Car Randomizer</title>
+    </head>
+    <body>
+        <label for="cars">Enter cars</label>
+        <input type="text" name="cars[]" id="cars"/>
+        <input type="submit" value="Show result"/>
+    </body>
+</html>
