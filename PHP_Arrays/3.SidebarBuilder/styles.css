@@ -1,0 +1,17 @@
+aside{
+    background-color: #BED0EA;
+    border:2px solid black;
+    border-radius: 15%;
+    width: 130px;
+    margin-bottom: 30px;
+}
+aside h3{
+    font-weight: bold;
+    padding: 2px;
+    margin-left: 8px;
+    border-bottom: 1px solid black;
+}
+ul{
+    list-style: circle;
+    text-decoration: underline;
+}
